@@ -1,0 +1,12 @@
+[package]
+name = "urlencode"
+version = "0.1.0"
+edition = "2021"
+author = "Michael Cereda"
+about = "A simple command line tool to URL encode strings"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.0.32", features = ["derive"] }
+urlencoding = "2.1.2"
