@@ -51,7 +51,7 @@ $ echo -n "TEST AAAABBBB" | urlencode -n | urlencode -n | urlencode -n | cat -
 ```
 
 
-List of all the commands
+## List of all the commands
 ```bash
 $ urlencode --help
 A simple command line utility for URL encoding or decoding stdin.
