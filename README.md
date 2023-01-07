@@ -1,10 +1,31 @@
 # urlencode
 
 A simple command line utility for URL encoding or decoding stdin.
+Urlencode doesn't have depencencies and aims to be available on every achitecture.
+
+We currently build for:
+
+- Linux
+  - x86_64(musl)
+  - aarch64 (musl, gnu)
+  - armv7 (gnueabihf, musleabihf)
+  - arm (gnueabihf, musleabihf)
+- MacOs
+  - Apple Silicon
+  - Intel.
+- Windows
+  - x86_64
 
 ## Installation
 
-### Install the binary
+### Download and Install the binary
+
+```bash
+$ curl -L YOUR_RELEASE_URL_FROM_GITHUB.tar.gz  -o urlencode.tar.gz
+$ tar -xf urlencode.tar.gz
+# The following will make the command be globally available in your system
+$ mv urlencode /usr/local/bin
+```
 
 ### Build it yourself
 
@@ -68,7 +89,11 @@ Options:
   -V, --version    Print version information
 ```
 
+## Contributors wanted
 
+This project is only at the beginning, feedback and help is always appreciated.  
+Feel free to submit pull requests.  
+Thank you in advance!
 
 ## License
 
