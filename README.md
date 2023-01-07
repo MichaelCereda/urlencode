@@ -12,7 +12,7 @@ We currently build for:
   - arm (gnueabihf, musleabihf)
 - MacOs
   - Apple Silicon
-  - Intel.
+  - Intel
 - Windows
   - x86_64
 
@@ -64,10 +64,10 @@ This is the same behavior of the `echo` command, and preserves the output even i
 `urlencode`.
 
 ```bash
-$ echo -n "TEST AAAABBBB" | urlencode | urlencode | urlencode | cat -
-# Output TEST%252520AAAABBBB%250A%0A
+$ echo -n "TEST AAAABBBB" | urlencode | urlencode | urlencode
+# Output TEST%252520AAAABBBB%250A%0A <-- previous new lines get urlencoded as well 
 
-$ echo -n "TEST AAAABBBB" | urlencode -n | urlencode -n | urlencode -n | cat -
+$ echo -n "TEST AAAABBBB" | urlencode -n | urlencode -n | urlencode -n 
 # Output: TEST%252520AAAABBBB  <-- no new line
 ```
 
