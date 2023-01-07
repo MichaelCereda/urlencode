@@ -8,5 +8,7 @@ about = "A simple command line tool to URL encode strings"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+assert_cmd = "2.0.7"
 clap = { version = "4.0.32", features = ["derive"] }
+predicates = "2.1.5"
 urlencoding = "2.1.2"
