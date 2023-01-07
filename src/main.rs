@@ -11,7 +11,7 @@ struct Opts {
     #[clap(short, long)]
     /// Decode stdin instead of encoding
     decode: bool,
-    #[clap(short, long, default_value = "false", )]
+    #[clap(short, long, default_value = "false")]
     /// Do not append a newline to the output
     nonewline: bool,
     /// Text to parse, this parameter overrides stdin

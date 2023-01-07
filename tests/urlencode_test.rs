@@ -1,6 +1,6 @@
+extern crate assert_cmd;
 extern crate clap;
 extern crate urlencoding;
-extern crate assert_cmd;
 
 use predicates::prelude::*;
 
@@ -22,28 +22,41 @@ fn test_decode() {
 fn test_help() {
     let mut cmd = assert_cmd::Command::cargo_bin("urlencode").unwrap();
     cmd.arg("--help");
-    cmd.assert().success().stdout(predicate::str::contains("URL encoding or decoding stdin"));
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("URL encoding or decoding stdin"));
 }
 
 #[test]
 fn test_text_to_parse() {
     let mut cmd = assert_cmd::Command::cargo_bin("urlencode").unwrap();
     cmd.arg("Hello World!");
-    cmd.assert().success().stdout(predicate::str::contains("Hello%20World%21\n"));
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("Hello%20World%21\n"));
 }
 
 // Ignore standard input if text to parse is provided
 #[test]
 fn test_ignore_stdin_if_text_to_parse() {
     let mut cmd = assert_cmd::Command::cargo_bin("urlencode").unwrap();
-    cmd.arg("Hello World!").write_stdin("I WILL BE IGNORED").unwrap();
-    cmd.assert().success().stdout(predicate::str::contains("Hello%20World%21\n"));
+    cmd.arg("Hello World!")
+        .write_stdin("I WILL BE IGNORED")
+        .unwrap();
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("Hello%20World%21\n"));
 }
 #[test]
 fn test_ignore_stdin_if_text_to_parse_when_decoding() {
     let mut cmd = assert_cmd::Command::cargo_bin("urlencode").unwrap();
-    cmd.arg("Hello%20World%21").arg("-d").write_stdin("I WILL BE IGNORED").unwrap();
-    cmd.assert().success().stdout(predicate::str::contains("Hello World!\n"));
+    cmd.arg("Hello%20World%21")
+        .arg("-d")
+        .write_stdin("I WILL BE IGNORED")
+        .unwrap();
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("Hello World!\n"));
 }
 
 // don't print a new line if the nonewline flag is set
@@ -58,8 +71,9 @@ fn test_nonewline() {
 #[test]
 fn test_nonewline_when_decoding() {
     let mut cmd = assert_cmd::Command::cargo_bin("urlencode").unwrap();
-    cmd.arg("-d").arg("-n").write_stdin("Hello%20World%21").unwrap();
+    cmd.arg("-d")
+        .arg("-n")
+        .write_stdin("Hello%20World%21")
+        .unwrap();
     cmd.assert().success().stdout("Hello World!");
 }
-
-
